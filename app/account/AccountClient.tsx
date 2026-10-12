@@ -79,19 +79,19 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
   return (
     <div className="min-h-screen bg-[#FBF9F5]">
       {/* Header */}
-      <div className="bg-[#14241B] text-[#FBF9F5]/80 text-[10px] font-light tracking-[0.2em] py-2 px-4 text-center border-b border-[#223B2D]">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3">
-          <span className="w-1 h-1 rounded-full bg-[#C4975C]/70" />
-          <span className="uppercase">Artisan Cold-Pressed Botanical Formulations &bull; Rooted in Botanical Science</span>
-          <span className="w-1 h-1 rounded-full bg-[#C4975C]/70" />
+      <div className="bg-[#14241B] text-[#FBF9F5]/80 text-[9px] sm:text-[10px] font-light tracking-[0.16em] sm:tracking-[0.2em] py-2 px-3 sm:px-4 text-center border-b border-[#223B2D]">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3">
+          <span className="w-1 h-1 rounded-full bg-[#C4975C]/70 shrink-0" />
+          <span className="uppercase truncate sm:whitespace-normal">Cold-Pressed Botanical Formulations &bull; Botanical Science</span>
+          <span className="w-1 h-1 rounded-full bg-[#C4975C]/70 shrink-0" />
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-6 py-12 sm:py-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
         {/* Back link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#8DA394] hover:text-[#14241B] transition-colors mb-10"
+          className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#8DA394] hover:text-[#14241B] transition-colors mb-6 sm:mb-10 py-1"
         >
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M19 12H5m7 7l-7-7 7-7" />
@@ -100,34 +100,34 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
         </Link>
 
         {/* Avatar + Name */}
-        <div className="flex items-center gap-5 mb-10">
-          <div className="w-16 h-16 rounded-full bg-[#14241B] text-[#FBF9F5] text-2xl font-serif font-normal flex items-center justify-center shrink-0 shadow-lg">
+        <div className="flex items-center gap-4 sm:gap-5 mb-8 sm:mb-10">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#14241B] text-[#FBF9F5] text-xl sm:text-2xl font-serif font-normal flex items-center justify-center shrink-0 shadow-lg">
             {initial}
           </div>
-          <div>
-            <h1 className="font-serif text-2xl sm:text-3xl text-[#14241B] font-normal">
+          <div className="min-w-0">
+            <h1 className="font-serif text-xl sm:text-2xl md:text-3xl text-[#14241B] font-normal truncate">
               {fullName || user.email}
             </h1>
-            <p className="text-[11px] text-[#8DA394] uppercase tracking-[0.16em] mt-1">
+            <p className="text-[10px] sm:text-[11px] text-[#8DA394] uppercase tracking-[0.16em] mt-0.5 sm:mt-1">
               Member since {joinedDate}
             </p>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           {/* Profile Card */}
-          <div className="bg-white rounded-2xl border border-[#E6ECE8] p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-6">
+          <div className="bg-white rounded-2xl border border-[#E6ECE8] p-5 sm:p-7 md:p-8">
+            <div className="flex items-center gap-3 mb-5 sm:mb-6">
               <svg width="18" height="18" fill="none" stroke="#C4975C" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <h2 className="font-serif text-xl text-[#14241B] font-normal">Profile Details</h2>
+              <h2 className="font-serif text-lg sm:text-xl text-[#14241B] font-normal">Profile Details</h2>
             </div>
 
-            <form onSubmit={handleSave} className="space-y-5">
+            <form onSubmit={handleSave} className="space-y-4 sm:space-y-5">
               <div>
-                <label className="block text-[11px] uppercase tracking-[0.16em] text-[#8DA394] mb-2">
+                <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#8DA394] mb-1.5 sm:mb-2">
                   Full Name
                 </label>
                 <input
@@ -188,13 +188,13 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
           </div>
 
           {/* Acquisition Dossier & Purchase History Card */}
-          <div className="bg-white rounded-2xl border border-[#E6ECE8] p-6 sm:p-8">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#F4EFE6]">
+          <div className="bg-white rounded-2xl border border-[#E6ECE8] p-5 sm:p-7 md:p-8">
+            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 sm:pb-4 border-b border-[#F4EFE6]">
               <div className="flex items-center gap-3">
                 <svg width="20" height="20" fill="none" stroke="#C4975C" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <h2 className="font-serif text-xl text-[#14241B] font-normal">
+                <h2 className="font-serif text-lg sm:text-xl text-[#14241B] font-normal">
                   Acquisition Dossier &amp; Orders
                 </h2>
               </div>
@@ -204,9 +204,9 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
             </div>
 
             {initialOrders.length === 0 ? (
-              <div className="py-10 text-center">
-                <p className="font-serif text-lg text-[#14241B]">No acquisitions recorded yet.</p>
-                <p className="text-xs text-[#8DA394] font-light mt-1">
+              <div className="py-8 sm:py-10 text-center">
+                <p className="font-serif text-base sm:text-lg text-[#14241B]">No acquisitions recorded yet.</p>
+                <p className="text-xs text-[#8DA394] font-light mt-1 max-w-sm mx-auto">
                   Explore our core botanical collection to begin your restorative hair wellness ritual.
                 </p>
                 <Link
@@ -221,11 +221,11 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
                 {initialOrders.map((order) => (
                   <div
                     key={order.id}
-                    className="p-5 rounded-xl border border-[#E6ECE8] bg-[#FBF9F5] hover:border-[#8DA394]/50 transition-all space-y-3"
+                    className="p-4 sm:p-5 rounded-xl border border-[#E6ECE8] bg-[#FBF9F5] hover:border-[#8DA394]/50 transition-all space-y-3"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#E6ECE8]/70">
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="font-serif text-base text-[#14241B] font-medium">
                             {order.order_number}
                           </span>
@@ -258,7 +258,7 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
                         <span className="text-[10px] uppercase tracking-wider text-[#8DA394] block">
                           Total Remitted
                         </span>
-                        <span className="font-serif text-lg font-semibold text-[#14241B]">
+                        <span className="font-serif text-base sm:text-lg font-semibold text-[#14241B]">
                           ₦{Number(order.total || 0).toLocaleString()}
                         </span>
                       </div>
@@ -267,11 +267,11 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
                     {/* Order Items Preview */}
                     <div className="space-y-2">
                       {(order.items || []).map((it: any, idx: number) => (
-                        <div key={idx} className="flex justify-between text-xs text-[#14241B]">
-                          <span className="font-light">
+                        <div key={idx} className="flex justify-between text-xs text-[#14241B] gap-2">
+                          <span className="font-light truncate">
                             {it.quantity}x {it.name} {it.volume ? `(${it.volume})` : ""}
                           </span>
-                          <span className="font-serif font-medium">
+                          <span className="font-serif font-medium shrink-0">
                             ₦{Number((it.price || 0) * (it.quantity || 1)).toLocaleString()}
                           </span>
                         </div>
@@ -279,7 +279,7 @@ export function AccountClient({ user, profile, initialOrders = [] }: AccountClie
                     </div>
 
                     {order.shipping_address && (
-                      <div className="pt-2 border-t border-[#E6ECE8]/50 text-[11px] text-[#8DA394]">
+                      <div className="pt-2 border-t border-[#E6ECE8]/50 text-[11px] text-[#8DA394] break-words">
                         <span>Destination: </span>
                         <span className="text-[#14241B]">
                           {order.shipping_address.address}, {order.shipping_address.city},{" "}

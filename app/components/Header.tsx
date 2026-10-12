@@ -64,19 +64,19 @@ export function Header({ cartCount = 0, onCartClick }: HeaderProps) {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-[#14241B] text-[#FBF9F5]/85 text-[10px] font-light tracking-[0.22em] py-2.5 px-4 text-center border-b border-[#223B2D]/80">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3">
-          <span className="w-1 h-1 rounded-full bg-[#C4975C]" />
-          <span className="uppercase">Cold-Pressed Botanical Lipids &bull; Scalp-First Hair Wellness</span>
-          <span className="w-1 h-1 rounded-full bg-[#C4975C]" />
+      <div className="bg-[#14241B] text-[#FBF9F5]/85 text-[10px] font-light tracking-[0.18em] py-2.5 px-4 text-center border-b border-[#223B2D]/80">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3">
+          <span className="w-1 h-1 rounded-full bg-[#C4975C] shrink-0" />
+          <span className="uppercase truncate">Cold-Pressed Botanical Lipids <span className="hidden xs:inline">&bull;</span><span className="xs:hidden">/</span> Scalp-First Hair Wellness</span>
+          <span className="w-1 h-1 rounded-full bg-[#C4975C] shrink-0" />
         </div>
       </div>
 
       {/* Main Navigation */}
       <header className="sticky top-0 z-40 bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#E6ECE8]/90 transition-all shadow-[0_4px_24px_-12px_rgba(20,36,27,0.06)]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Left Navigation Links - Desktop */}
-          <nav className="hidden md:flex items-center gap-10 text-[11px] font-medium tracking-[0.16em] uppercase text-[#14241B]/70">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-[11px] font-medium tracking-[0.16em] uppercase text-[#14241B]/70">
             <Link
               href="#products"
               className="hover:text-[#14241B] transition-colors duration-200 py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#C4975C] after:transition-all after:duration-300 hover:after:w-full"
@@ -102,23 +102,23 @@ export function Header({ cartCount = 0, onCartClick }: HeaderProps) {
             href="/"
             className="flex flex-col items-center group cursor-pointer focus:outline-none"
           >
-            <span className="font-serif text-2xl sm:text-[28px] tracking-[0.25em] text-[#14241B] uppercase font-normal leading-none group-hover:text-[#3A2E28] transition-colors">
+            <span className="font-serif text-xl sm:text-2xl md:text-[28px] tracking-[0.2em] sm:tracking-[0.25em] text-[#14241B] uppercase font-normal leading-none group-hover:text-[#3A2E28] transition-colors">
               COCO ROOTS
             </span>
-            <span className="text-[9px] tracking-[0.35em] uppercase text-[#8DA394] mt-1.5 font-medium font-sans">
+            <span className="text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.35em] uppercase text-[#8DA394] mt-1 sm:mt-1.5 font-medium font-sans">
               Botanical Care
             </span>
           </Link>
 
           {/* Right Action Icons */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-2.5 sm:gap-4 md:gap-6">
             <Link
               href="/order"
               id="header-order-now-btn"
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-semibold px-5 py-2.5 rounded-full bg-[#14241B] text-[#FBF9F5] hover:bg-[#C4975C] transition-all shadow-[0_4px_16px_-4px_rgba(20,36,27,0.3)] hover:shadow-[0_8px_24px_-4px_rgba(196,151,92,0.4)] hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.18em] font-semibold px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#14241B] text-[#FBF9F5] hover:bg-[#C4975C] transition-all shadow-[0_4px_16px_-4px_rgba(20,36,27,0.3)] hover:shadow-[0_8px_24px_-4px_rgba(196,151,92,0.4)] hover:-translate-y-0.5 shrink-0"
             >
-              <span>Order Now</span>
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="whitespace-nowrap">Order Now</span>
+              <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
@@ -230,25 +230,53 @@ export function Header({ cartCount = 0, onCartClick }: HeaderProps) {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#FBF9F5] border-t border-[#E6ECE8] px-6 py-8 shadow-xl animate-in slide-in-from-top-2 duration-300">
-            <nav className="flex flex-col gap-6 text-lg font-serif tracking-wider text-[#14241B]">
-              <Link href="#products" onClick={() => setMobileMenuOpen(false)} className="py-1 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors">Collection</Link>
-              <Link href="#philosophy" onClick={() => setMobileMenuOpen(false)} className="py-1 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors">Philosophy &amp; Ingredients</Link>
-              <Link href="#story" onClick={() => setMobileMenuOpen(false)} className="py-1 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors">Our Story</Link>
-              <Link href="#ritual" onClick={() => setMobileMenuOpen(false)} className="py-1 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors">Product Experience</Link>
-              <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#C4975C] transition-colors">Contact &amp; Newsletter</Link>
+          <div className="md:hidden bg-[#FBF9F5] border-t border-[#E6ECE8] px-5 sm:px-6 py-6 sm:py-8 shadow-xl animate-in slide-in-from-top-2 duration-300 max-h-[calc(100svh-4.5rem)] overflow-y-auto">
+            <nav className="flex flex-col gap-4 sm:gap-5 text-base sm:text-lg font-serif tracking-wider text-[#14241B]">
+              <Link href="#products" onClick={() => setMobileMenuOpen(false)} className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between">
+                <span>Collection</span>
+                <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+              </Link>
+              <Link href="#philosophy" onClick={() => setMobileMenuOpen(false)} className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between">
+                <span>Philosophy &amp; Ingredients</span>
+                <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+              </Link>
+              <Link href="#story" onClick={() => setMobileMenuOpen(false)} className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between">
+                <span>Our Story</span>
+                <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+              </Link>
+              <Link href="#ritual" onClick={() => setMobileMenuOpen(false)} className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between">
+                <span>Product Experience</span>
+                <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+              </Link>
+              <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between">
+                <span>Contact &amp; Newsletter</span>
+                <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+              </Link>
+
+              {user ? (
+                <Link
+                  href="/account"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 border-b border-[#E6ECE8]/60 hover:text-[#C4975C] transition-colors flex items-center justify-between"
+                >
+                  <span>My Account</span>
+                  <span className="text-xs text-[#8DA394] font-sans font-light">&rarr;</span>
+                </Link>
+              ) : null}
+
               <Link
                 href="/order"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-3 mt-2 rounded-full bg-[#14241B] text-[#FBF9F5] text-[11px] font-medium uppercase tracking-[0.18em] text-center shadow-lg"
+                className="py-3.5 mt-2 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-semibold uppercase tracking-[0.18em] text-center shadow-lg active:scale-[0.98] transition-transform"
               >
-                Order Now
+                Order Now &bull; Private Boutique
               </Link>
+
               {!user && (
                 <button
                   type="button"
                   onClick={() => { setMobileMenuOpen(false); setAuthOpen(true); }}
-                  className="py-3 mt-2 rounded-full bg-[#14241B] text-[#FBF9F5] text-[11px] font-medium uppercase tracking-[0.16em] text-center"
+                  className="py-3.5 mt-1 rounded-full border border-[#14241B]/20 text-[#14241B] text-xs font-semibold uppercase tracking-[0.16em] text-center active:scale-[0.98] transition-all"
                 >
                   Sign In / Create Account
                 </button>
@@ -257,13 +285,13 @@ export function Header({ cartCount = 0, onCartClick }: HeaderProps) {
                 <button
                   type="button"
                   onClick={() => { setMobileMenuOpen(false); handleSignOut(); }}
-                  className="py-3 mt-2 rounded-full border border-red-200 text-red-500 text-[11px] font-medium uppercase tracking-[0.16em] text-center"
+                  className="py-3 mt-1 rounded-full border border-red-200 text-red-500 text-xs font-medium uppercase tracking-[0.16em] text-center"
                 >
                   Sign Out
                 </button>
               )}
             </nav>
-            <div className="mt-8 pt-6 border-t border-[#E6ECE8] text-xs text-[#8DA394] uppercase tracking-widest text-center">
+            <div className="mt-6 pt-5 border-t border-[#E6ECE8] text-[10px] text-[#8DA394] uppercase tracking-widest text-center">
               COCO ROOTS &bull; Botanical Hair Wellness
             </div>
           </div>

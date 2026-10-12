@@ -247,20 +247,20 @@ export function OrderClient({
     return (
       <div className="min-h-screen bg-[#FBF9F5] text-[#14241B] flex flex-col justify-between">
         {/* Top Minimal Brand Bar */}
-        <header className="border-b border-[#E6ECE8] py-6 px-8 bg-white/70 backdrop-blur-md">
+        <header className="border-b border-[#E6ECE8] py-4 sm:py-6 px-4 sm:px-8 bg-white/70 backdrop-blur-md">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
-            <Link href="/" className="font-serif text-2xl tracking-[0.25em] text-[#14241B] uppercase">
+            <Link href="/" className="font-serif text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#14241B] uppercase">
               COCO ROOTS
             </Link>
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[#8DA394] font-medium">
+            <span className="text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#8DA394] font-medium">
               Acquisition Confirmed
             </span>
           </div>
         </header>
 
         {/* Confirmation Hero Card */}
-        <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24 w-full">
-          <div className="relative rounded-3xl p-8 sm:p-14 bg-white border border-[#E6ECE8] shadow-[0_30px_70px_-20px_rgba(20,36,27,0.12)] text-center overflow-hidden">
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-16 md:py-24 w-full">
+          <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-14 bg-white border border-[#E6ECE8] shadow-[0_30px_70px_-20px_rgba(20,36,27,0.12)] text-center overflow-hidden">
             {/* Atmospheric background aura */}
             <div
               className="absolute -top-32 -left-32 w-80 h-80 rounded-full pointer-events-none"
@@ -276,49 +276,49 @@ export function OrderClient({
             />
 
             {/* Checkmark Crest Badge */}
-            <div className="w-20 h-20 mx-auto rounded-full bg-[#14241B] text-[#C4975C] flex items-center justify-center shadow-xl mb-6 relative">
-              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-[#14241B] text-[#C4975C] flex items-center justify-center shadow-xl mb-5 sm:mb-6 relative">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
               <span className="absolute -inset-1 rounded-full border border-[#C4975C]/40 animate-ping opacity-30" />
             </div>
 
-            <span className="text-[11px] uppercase tracking-[0.28em] text-[#C4975C] font-semibold">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] sm:tracking-[0.28em] text-[#C4975C] font-semibold">
               Order Confirmed &amp; Allocating
             </span>
 
-            <h1 className="mt-3 font-serif text-3xl sm:text-5xl text-[#14241B] font-normal tracking-tight">
+            <h1 className="mt-2.5 sm:mt-3 font-serif text-2xl sm:text-4xl md:text-5xl text-[#14241B] font-normal tracking-tight">
               Thank You for Your Patronage
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-[#6B726C] max-w-lg mx-auto leading-relaxed font-light">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-[#6B726C] max-w-lg mx-auto leading-relaxed font-light">
               Your botanical formulas are being hand-inspected and sealed in our climate-controlled lab. A confirmation dossier has been dispatched to{" "}
-              <strong className="text-[#14241B] font-medium">{formData.email}</strong>.
+              <strong className="text-[#14241B] font-medium break-all">{formData.email}</strong>.
             </p>
 
             {/* Order Dossier Details */}
-            <div className="mt-10 p-6 rounded-2xl bg-[#FBF9F5] border border-[#E6ECE8] text-left grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-2xl bg-[#FBF9F5] border border-[#E6ECE8] text-left grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8DA394] font-medium block">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#8DA394] font-medium block">
                   Reference
                 </span>
-                <span className="font-serif text-lg text-[#14241B] font-semibold mt-1 block">
+                <span className="font-serif text-base sm:text-lg text-[#14241B] font-semibold mt-0.5 sm:mt-1 block">
                   {confirmedOrder.orderNumber}
                 </span>
               </div>
               <div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8DA394] font-medium block">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#8DA394] font-medium block">
                   Estimated Arrival
                 </span>
-                <span className="font-serif text-lg text-[#14241B] font-semibold mt-1 block">
+                <span className="font-serif text-base sm:text-lg text-[#14241B] font-semibold mt-0.5 sm:mt-1 block">
                   {confirmedOrder.deliveryDate}
                 </span>
               </div>
               <div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8DA394] font-medium block">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#8DA394] font-medium block">
                   White-Glove Status
                 </span>
-                <span className="text-xs text-[#228B22] font-semibold mt-1 block flex items-center gap-1.5">
+                <span className="text-xs text-[#228B22] font-semibold mt-0.5 sm:mt-1 block flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#228B22] animate-pulse" />
                   Courier Assigned
                 </span>
@@ -326,49 +326,49 @@ export function OrderClient({
             </div>
 
             {/* Purchased Items Recap */}
-            <div className="mt-8 text-left border-t border-[#E6ECE8] pt-6">
-              <h3 className="text-xs uppercase tracking-[0.16em] text-[#14241B] font-semibold mb-4">
+            <div className="mt-6 sm:mt-8 text-left border-t border-[#E6ECE8] pt-5 sm:pt-6">
+              <h3 className="text-xs uppercase tracking-[0.16em] text-[#14241B] font-semibold mb-3 sm:mb-4">
                 Reserved Formulations ({items.length})
               </h3>
               <div className="space-y-3">
                 {items.map((item) => (
-                  <div key={item.id} className="flex items-center justify-between py-2 text-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-[#F4EFE6] border border-[#E6ECE8]">
-                        <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  <div key={item.id} className="flex items-center justify-between py-2 text-xs sm:text-sm gap-2">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#F4EFE6] border border-[#E6ECE8] shrink-0">
+                        <Image src={item.image} alt={item.name} fill sizes="48px" className="object-cover" />
                       </div>
-                      <div>
-                        <p className="font-serif text-base text-[#14241B]">{item.name}</p>
-                        <p className="text-[10px] text-[#8DA394] uppercase tracking-wider">
+                      <div className="min-w-0">
+                        <p className="font-serif text-sm sm:text-base text-[#14241B] truncate">{item.name}</p>
+                        <p className="text-[9px] sm:text-[10px] text-[#8DA394] uppercase tracking-wider">
                           Qty: {item.quantity} &bull; {item.volume}
                         </p>
                       </div>
                     </div>
-                    <span className="font-serif text-base font-semibold text-[#14241B]">
+                    <span className="font-serif text-sm sm:text-base font-semibold text-[#14241B] shrink-0">
                       ₦{(item.price * item.quantity).toLocaleString()}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 pt-4 border-t border-[#E6ECE8] flex justify-between items-center">
+              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-[#E6ECE8] flex justify-between items-center">
                 <span className="text-xs uppercase tracking-wider text-[#8DA394]">Total Remitted</span>
-                <span className="font-serif text-2xl text-[#14241B] font-semibold">
+                <span className="font-serif text-xl sm:text-2xl text-[#14241B] font-semibold">
                   ₦{(confirmedOrder.amountPaid || total).toLocaleString()}
                 </span>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/account"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-semibold uppercase tracking-[0.16em] hover:bg-[#C4975C] transition-colors"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-semibold uppercase tracking-[0.16em] hover:bg-[#C4975C] transition-colors text-center"
               >
                 View in My Account
               </Link>
               <Link
                 href="/"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-[#14241B]/20 text-[#14241B] text-xs font-semibold uppercase tracking-[0.16em] hover:bg-black/5 transition-colors"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-full border border-[#14241B]/20 text-[#14241B] text-xs font-semibold uppercase tracking-[0.16em] hover:bg-black/5 transition-colors text-center"
               >
                 Return to Gallery
               </Link>
@@ -386,33 +386,34 @@ export function OrderClient({
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#14241B]">
       {/* Top Banner */}
-      <div className="bg-[#14241B] text-[#FBF9F5]/90 text-[10px] tracking-[0.22em] uppercase py-2.5 px-4 text-center border-b border-[#223B2D] flex items-center justify-center gap-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C] animate-pulse" />
-        <span>Boutique Acquisition &bull; Bespoke Botanical Packaging &bull; Complimentary Secured Courier</span>
-        <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C] animate-pulse" />
+      <div className="bg-[#14241B] text-[#FBF9F5]/90 text-[9px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.22em] uppercase py-2 sm:py-2.5 px-3 sm:px-4 text-center border-b border-[#223B2D] flex items-center justify-center gap-2 sm:gap-3">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C] animate-pulse shrink-0" />
+        <span className="truncate sm:whitespace-normal">Boutique Acquisition &bull; Bespoke Botanical Packaging &bull; Secured Courier</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C] animate-pulse shrink-0" />
       </div>
 
       {/* Navigation Header */}
       <header className="sticky top-0 z-40 bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#E6ECE8]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           <Link href="/" className="flex flex-col">
-            <span className="font-serif text-2xl tracking-[0.25em] text-[#14241B] uppercase font-normal leading-none">
+            <span className="font-serif text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#14241B] uppercase font-normal leading-none">
               COCO ROOTS
             </span>
-            <span className="text-[9px] tracking-[0.35em] uppercase text-[#8DA394] mt-1 font-medium">
+            <span className="text-[8px] sm:text-[9px] tracking-[0.3em] uppercase text-[#8DA394] mt-1 font-medium hidden xs:block">
               Private Checkout
             </span>
           </Link>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
             <Link
               href="/"
-              className="text-[11px] uppercase tracking-[0.16em] text-[#8DA394] hover:text-[#14241B] transition-colors flex items-center gap-1.5 font-medium"
+              className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-[#8DA394] hover:text-[#14241B] transition-colors flex items-center gap-1 sm:gap-1.5 font-medium py-1 px-2 rounded-lg"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M15 19l-7-7 7-7" />
               </svg>
-              Return to Collection
+              <span className="hidden sm:inline">Return to Collection</span>
+              <span className="sm:hidden">Back</span>
             </Link>
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#14241B]/5 border border-[#14241B]/10 text-[10px] uppercase tracking-wider text-[#14241B] font-medium">
               <svg className="w-3.5 h-3.5 text-[#C4975C]" fill="currentColor" viewBox="0 0 20 20">
@@ -425,50 +426,50 @@ export function OrderClient({
       </header>
 
       {/* MAIN CHECKOUT CONTAINER */}
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 py-10 lg:py-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16">
         {/* Page Title & Breadcrumb */}
-        <div className="mb-10 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#C4975C] font-semibold mb-2">
+        <div className="mb-6 sm:mb-10 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-[#C4975C] font-semibold mb-2">
             <span>Direct From Formulation Atelier</span>
             <span>&bull;</span>
             <span>Express Fulfillment</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-5xl text-[#14241B] font-normal tracking-tight">
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#14241B] font-normal tracking-tight">
             Acquisition &amp; Order Dossier
           </h1>
-          <p className="mt-2 text-sm text-[#6B726C] font-light max-w-xl">
+          <p className="mt-2 text-xs sm:text-sm text-[#6B726C] font-light max-w-xl mx-auto lg:mx-0">
             Confirm your formulation selection, customize packaging ritual preferences, and complete your secured acquisition below.
           </p>
         </div>
 
         {errorMessage && (
-          <div className="mb-8 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center justify-between">
+          <div className="mb-6 sm:mb-8 p-3.5 sm:p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <svg className="w-4 h-4 text-red-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               <span>{errorMessage}</span>
             </div>
-            <button onClick={() => setErrorMessage(null)} className="text-red-500 hover:text-red-800 text-xs font-semibold">
+            <button onClick={() => setErrorMessage(null)} className="text-red-500 hover:text-red-800 text-xs font-semibold p-1">
               Dismiss
             </button>
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* LEFT COLUMN: CHECKOUT FORMS (7 COLS) */}
-          <div className="lg:col-span-7 space-y-10">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-10">
             {/* STEP 1: RECIPIENT INFORMATION */}
-            <section className="bg-white rounded-3xl p-7 sm:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#F4EFE6]">
+            <section className="bg-white rounded-3xl p-5 sm:p-7 lg:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#F4EFE6]">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center shrink-0">
                     1
                   </span>
-                  <h2 className="font-serif text-2xl text-[#14241B]">Recipient &amp; Delivery Destination</h2>
+                  <h2 className="font-serif text-xl sm:text-2xl text-[#14241B]">Recipient &amp; Delivery Destination</h2>
                 </div>
-                <span className="text-[11px] text-[#228B22] font-semibold uppercase tracking-wider flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
-                  <span className="w-2 h-2 rounded-full bg-[#228B22] animate-pulse" />
+                <span className="text-[10px] text-[#228B22] font-semibold uppercase tracking-wider flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#228B22] animate-pulse" />
                   Verified Member
                 </span>
               </div>
@@ -581,12 +582,12 @@ export function OrderClient({
             </section>
 
             {/* STEP 2: WHITE-GLOVE SHIPPING TIER */}
-            <section className="bg-white rounded-3xl p-7 sm:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
+            <section className="bg-white rounded-3xl p-5 sm:p-7 lg:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#F4EFE6]">
-                <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center">
+                <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center shrink-0">
                   2
                 </span>
-                <h2 className="font-serif text-2xl text-[#14241B]">Fulfillment &amp; Courier Protocol</h2>
+                <h2 className="font-serif text-xl sm:text-2xl text-[#14241B]">Fulfillment &amp; Courier Protocol</h2>
               </div>
 
               <div className="space-y-3.5">
@@ -616,15 +617,15 @@ export function OrderClient({
                   <label
                     key={tier.id}
                     onClick={() => setShippingMethod(tier.id as any)}
-                    className={`flex items-center justify-between p-4.5 rounded-2xl border cursor-pointer transition-all ${
+                    className={`flex flex-col sm:flex-row sm:items-center justify-between p-3.5 sm:p-4 rounded-2xl border cursor-pointer transition-all gap-2.5 sm:gap-4 ${
                       shippingMethod === tier.id
                         ? "border-[#14241B] bg-[#14241B]/5 ring-1 ring-[#14241B]"
                         : "border-[#E6ECE8] hover:border-[#8DA394]/50"
                     }`}
                   >
-                    <div className="flex items-center gap-3.5">
+                    <div className="flex items-start sm:items-center gap-3">
                       <div
-                        className={`w-5 h-5 rounded-full border flex items-center justify-center ${
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 ${
                           shippingMethod === tier.id
                             ? "border-[#14241B] bg-[#14241B]"
                             : "border-stone-300"
@@ -634,17 +635,17 @@ export function OrderClient({
                           <div className="w-2 h-2 rounded-full bg-white" />
                         )}
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <p className="font-serif text-base text-[#14241B] font-medium">{tier.title}</p>
-                          <span className="text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#C4975C]/15 text-[#C4975C]">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                          <p className="font-serif text-sm sm:text-base text-[#14241B] font-medium">{tier.title}</p>
+                          <span className="text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#C4975C]/15 text-[#C4975C] shrink-0">
                             {tier.badge}
                           </span>
                         </div>
-                        <p className="text-xs text-[#6B726C] font-light mt-0.5">{tier.desc}</p>
+                        <p className="text-xs text-[#6B726C] font-light mt-0.5 leading-relaxed">{tier.desc}</p>
                       </div>
                     </div>
-                    <span className="font-serif text-base font-semibold text-[#14241B]">
+                    <span className="font-serif text-sm sm:text-base font-semibold text-[#14241B] self-end sm:self-center shrink-0">
                       {tier.cost}
                     </span>
                   </label>
@@ -652,24 +653,25 @@ export function OrderClient({
               </div>
 
               {/* Bespoke Packaging Ritual Option */}
-              <div className="mt-6 pt-5 border-t border-[#F4EFE6] flex items-center justify-between">
-                <div>
+              <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#F4EFE6] flex items-center justify-between gap-4">
+                <div className="min-w-0">
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#14241B]">
                     Signature Embossed Eco-Linen Gift Box
                   </p>
-                  <p className="text-xs text-[#8DA394] font-light">
+                  <p className="text-xs text-[#8DA394] font-light mt-0.5">
                     Hand-tied raw cotton ribbon with seeded paper botanical note.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsPackagingEco(!isPackagingEco)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+                  aria-label="Toggle eco packaging"
+                  className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
                     isPackagingEco ? "bg-[#14241B]" : "bg-stone-300"
                   }`}
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform ${
                       isPackagingEco ? "translate-x-6" : "translate-x-1"
                     }`}
                   />
@@ -678,15 +680,15 @@ export function OrderClient({
             </section>
 
             {/* STEP 3: PAYMENT METHOD */}
-            <section className="bg-white rounded-3xl p-7 sm:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
+            <section className="bg-white rounded-3xl p-5 sm:p-7 lg:p-9 border border-[#E6ECE8] shadow-[0_10px_35px_-10px_rgba(20,36,27,0.05)]">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#F4EFE6]">
-                <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center">
+                <span className="w-7 h-7 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-serif font-bold flex items-center justify-center shrink-0">
                   3
                 </span>
-                <h2 className="font-serif text-2xl text-[#14241B]">Secured Payment &amp; Remittance</h2>
+                <h2 className="font-serif text-xl sm:text-2xl text-[#14241B]">Secured Payment &amp; Remittance</h2>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6">
                 {[
                   {
                     id: "stripe",
@@ -780,14 +782,14 @@ export function OrderClient({
           </div>
 
           {/* RIGHT COLUMN: ORDER SUMMARY DOSSIER & SUBMIT BUTTON (5 COLS) */}
-          <div className="lg:col-span-5 space-y-8 sticky top-28">
-            <div className="bg-white rounded-3xl p-7 sm:p-9 border border-[#E6ECE8] shadow-[0_20px_50px_-15px_rgba(20,36,27,0.1)] relative overflow-hidden order-glow-border">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8 lg:sticky lg:top-28">
+            <div className="bg-white rounded-3xl p-5 sm:p-7 lg:p-9 border border-[#E6ECE8] shadow-[0_20px_50px_-15px_rgba(20,36,27,0.1)] relative overflow-hidden order-glow-border">
               {/* Subtle gold ribbon top edge */}
               <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#14241B] via-[#C4975C] to-[#14241B]" />
 
-              <div className="flex items-center justify-between pb-4 border-b border-[#F4EFE6] mb-6">
-                <h3 className="font-serif text-2xl text-[#14241B]">Order Bag Dossier</h3>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#C4975C] font-semibold">
+              <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#F4EFE6] mb-4 sm:mb-6">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#14241B]">Order Bag Dossier</h3>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#C4975C] font-semibold">
                   {items.reduce((acc, i) => acc + i.quantity, 0)} Items Selected
                 </span>
               </div>
@@ -800,33 +802,37 @@ export function OrderClient({
                   </div>
                 ) : (
                   items.map((item) => (
-                    <div key={item.id} className="py-4 flex gap-4 items-center">
-                      <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-[#F4EFE6] border border-[#E6ECE8]">
-                        <Image src={item.image} alt={item.name} fill className="object-cover" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-serif text-base text-[#14241B] truncate">{item.name}</h4>
-                        <p className="text-[10px] text-[#8DA394] uppercase tracking-wider">{item.volume}</p>
-                        <p className="text-xs text-[#C4975C] font-semibold mt-0.5">
-                          ₦{item.price.toLocaleString()} each
-                        </p>
+                    <div key={item.id} className="py-3.5 sm:py-4 flex flex-wrap xs:flex-nowrap gap-3 sm:gap-4 items-center justify-between">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 bg-[#F4EFE6] border border-[#E6ECE8]">
+                          <Image src={item.image} alt={item.name} fill sizes="64px" className="object-cover" />
+                        </div>
+                        <div className="min-w-0">
+                          <h4 className="font-serif text-sm sm:text-base text-[#14241B] truncate">{item.name}</h4>
+                          <p className="text-[9px] sm:text-[10px] text-[#8DA394] uppercase tracking-wider">{item.volume}</p>
+                          <p className="text-xs text-[#C4975C] font-semibold mt-0.5">
+                            ₦{item.price.toLocaleString()} each
+                          </p>
+                        </div>
                       </div>
                       {/* Qty changer */}
-                      <div className="flex items-center gap-2 border border-[#E6ECE8] rounded-full px-2.5 py-1">
+                      <div className="flex items-center gap-2 border border-[#E6ECE8] rounded-full px-2.5 py-1 ml-auto xs:ml-0">
                         <button
                           type="button"
                           onClick={() => updateQuantity(item.id, -1)}
-                          className="text-[#14241B] text-sm hover:text-red-500 font-bold px-1"
+                          aria-label={`Decrease quantity of ${item.name}`}
+                          className="text-[#14241B] text-base hover:text-red-500 font-bold px-1.5 min-w-[24px] min-h-[24px] flex items-center justify-center"
                         >
                           &minus;
                         </button>
-                        <span className="text-xs font-semibold text-[#14241B] min-w-[12px] text-center">
+                        <span className="text-xs font-semibold text-[#14241B] min-w-[14px] text-center">
                           {item.quantity}
                         </span>
                         <button
                           type="button"
                           onClick={() => updateQuantity(item.id, 1)}
-                          className="text-[#14241B] text-sm hover:text-[#C4975C] font-bold px-1"
+                          aria-label={`Increase quantity of ${item.name}`}
+                          className="text-[#14241B] text-base hover:text-[#C4975C] font-bold px-1.5 min-w-[24px] min-h-[24px] flex items-center justify-center"
                         >
                           &#43;
                         </button>

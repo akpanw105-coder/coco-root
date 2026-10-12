@@ -34,25 +34,25 @@ export function ProductCard({ product, onSelect, onAddToCart }: ProductCardProps
       </div>
 
       {/* Content Framing */}
-      <div className="flex flex-col flex-1 p-7 sm:p-8 justify-between">
+      <div className="flex flex-col flex-1 p-5 sm:p-7 md:p-8 justify-between">
         <div>
-          <div className="flex items-center justify-between text-[10px] text-[#8DA394] font-medium tracking-[0.2em] uppercase mb-3">
+          <div className="flex items-center justify-between text-[10px] text-[#8DA394] font-medium tracking-[0.18em] uppercase mb-2.5 sm:mb-3">
             <span>{product.category}</span>
             <span className="text-[#3A2E28]/60 font-light">{product.volume}</span>
           </div>
 
           <h3
             onClick={() => onSelect(product)}
-            className="font-serif text-2xl text-[#14241B] font-normal leading-snug group-hover:text-[#C4975C] transition-colors cursor-pointer"
+            className="font-serif text-xl sm:text-2xl text-[#14241B] font-normal leading-snug group-hover:text-[#C4975C] transition-colors cursor-pointer"
           >
             {product.name}
           </h3>
 
-          <p className="mt-2.5 text-[13px] text-[#6B726C] line-clamp-2 leading-relaxed font-light">
+          <p className="mt-2 sm:mt-2.5 text-xs sm:text-[13px] text-[#6B726C] line-clamp-2 leading-relaxed font-light">
             {product.description}
           </p>
 
-          <div className="mt-5 pt-3 border-t border-[#F4EFE6] flex items-center justify-between">
+          <div className="mt-4 sm:mt-5 pt-3 border-t border-[#F4EFE6] flex items-center justify-between">
             <span className="text-xs text-[#8DA394] font-sans font-light">
               {product.priceNote}
             </span>
@@ -60,11 +60,11 @@ export function ProductCard({ product, onSelect, onAddToCart }: ProductCardProps
         </div>
 
         {/* Action Controls */}
-        <div className="mt-7 flex items-center gap-3">
+        <div className="mt-5 sm:mt-7 flex items-center gap-2.5 sm:gap-3">
           <button
             type="button"
             onClick={() => onSelect(product)}
-            className="flex-1 py-3 px-4 rounded-full border border-[#14241B]/20 text-[11px] font-medium tracking-[0.16em] uppercase text-[#14241B] hover:bg-[#14241B] hover:text-[#FBF9F5] transition-all"
+            className="flex-1 min-h-[44px] py-2.5 sm:py-3 px-3 sm:px-4 rounded-full border border-[#14241B]/20 text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#14241B] hover:bg-[#14241B] hover:text-[#FBF9F5] transition-all flex items-center justify-center active:scale-[0.98]"
           >
             Explore Formula
           </button>
@@ -73,7 +73,7 @@ export function ProductCard({ product, onSelect, onAddToCart }: ProductCardProps
               type="button"
               onClick={() => onAddToCart(product)}
               aria-label={`Add ${product.name} to shopping bag`}
-              className="p-3 rounded-full bg-[#14241B] text-[#FBF9F5] hover:bg-[#C4975C] transition-colors shadow-sm hover:scale-105"
+              className="w-11 h-11 shrink-0 rounded-full bg-[#14241B] text-[#FBF9F5] hover:bg-[#C4975C] transition-colors shadow-sm hover:scale-105 active:scale-95 flex items-center justify-center"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />

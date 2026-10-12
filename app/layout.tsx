@@ -20,6 +20,7 @@ export const viewport: Viewport = {
   themeColor: "#17281F",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
@@ -71,7 +72,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${jakarta.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FBF9F5] text-[#222724] font-sans selection:bg-[#2D4536] selection:text-[#FBF9F5]">
+      <body className="min-h-full w-full overflow-x-hidden flex flex-col bg-[#FBF9F5] text-[#222724] font-sans selection:bg-[#2D4536] selection:text-[#FBF9F5]">
         {children}
       </body>
     </html>
