@@ -1,69 +1,469 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Header } from "./components/Header";
+import { HeroMedia } from "./components/HeroMedia";
+import { ProductCard } from "./components/ProductCard";
+import { ProductModal } from "./components/ProductModal";
+import { Newsletter } from "./components/Newsletter";
+import { Footer } from "./components/Footer";
+import { PRODUCTS, PHILOSOPHY_PILLARS, PRODUCT_EXPERIENCE_FEATURES, Product } from "./data/brand-data";
 
 export default function Home() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [isBagOpen, setIsBagOpen] = useState(false);
+
+  const handleAddToCart = (product: Product) => {
+    setCartItems((prev) => [...prev, product]);
+    setIsBagOpen(true);
+  };
+
+  const handleRemoveFromCart = (index: number) => {
+    setCartItems((prev) => prev.filter((_, i) => i !== index));
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="flex flex-col min-h-screen bg-[#FBF9F5] text-[#1F2421]">
+      {/* Header Navigation */}
+      <Header
+        cartCount={cartItems.length}
+        onCartClick={() => setIsBagOpen(true)}
+      />
+
+      <main className="flex-1">
+        {/* SECTION B: FULL-SCREEN CINEMATIC HERO EXPERIENCE */}
+        <section className="relative min-h-[calc(100svh-5rem)] lg:min-h-screen flex flex-col justify-between pt-10 pb-14 sm:pb-16 overflow-hidden" style={{background: "linear-gradient(160deg, #FBF9F5 0%, #F5EEE3 38%, #EEE6D6 65%, #F4EFE6 100%)"}}>
+          {/* Warm Atmospheric Halo — offset top-center for organic depth */}
+          <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[1100px] h-[600px] pointer-events-none -z-10" style={{background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(196,151,92,0.13) 0%, rgba(230,220,200,0.25) 45%, transparent 80%)"}} />
+          {/* Secondary sage halo — bottom-left — adds botanical warmth */}
+          <div className="absolute bottom-0 left-0 w-[600px] h-[400px] pointer-events-none -z-10" style={{background: "radial-gradient(ellipse 80% 70% at 10% 90%, rgba(141,163,148,0.10) 0%, transparent 70%)"}} />
+          <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#F4EFE6]/80 to-transparent pointer-events-none z-10" />
+
+          {/* Top Hero Editorial Headline */}
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center pt-4 sm:pt-6 z-20">
+
+            {/* Eyebrow — refined horizontal rule treatment, no pill */}
+            <div className="inline-flex items-center gap-3.5 mb-7 sm:mb-9">
+              <span className="block w-7 sm:w-10 h-px bg-[#C4975C]/60" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#8DA394] font-medium">
+                The Botanical Hair Wellness Standard
+              </span>
+              <span className="block w-7 sm:w-10 h-px bg-[#C4975C]/60" />
+            </div>
+
+            {/* Main Editorial Headline — deliberate scale contrast across lines */}
+            <h1 className="font-serif font-normal text-[#14241B] tracking-[-0.025em] leading-[1.1] max-w-[780px] mx-auto">
+              <span className="block text-[42px] sm:text-[64px] lg:text-[76px] leading-[1.06]">
+                Restorative Haircare
+              </span>
+              <span className="block text-[36px] sm:text-[54px] lg:text-[64px] leading-[1.12] text-[#3A2E28]/80 mt-1">
+                Rooted in{" "}
+                <em className="not-italic" style={{color: "#14241B"}}>Pure Nature</em>
+              </span>
+            </h1>
+
+            {/* Divider line — editorial breath between headline and body */}
+            <div className="mt-7 sm:mt-9 flex items-center justify-center gap-4">
+              <span className="block w-12 h-px bg-[#E6ECE8]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C]/70" />
+              <span className="block w-12 h-px bg-[#E6ECE8]" />
+            </div>
+
+            {/* Editorial Subtitle — warm charcoal, restrained width */}
+            <p className="mt-6 text-[15px] sm:text-[17px] text-[#3A2E28]/70 max-w-[500px] mx-auto leading-[1.75] font-light tracking-[0.01em]">
+              Elevate daily grooming into an intentional restoration ritual. Cold-pressed botanical lipids paired with clean hair science for balanced roots and weightless luster.
+            </p>
+          </div>
+
+          {/* Central Dominant Feature: Cinematic 3D Product Media Showcase */}
+          <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 my-5 sm:my-7 z-10">
+            <HeroMedia priority={true} />
+          </div>
+
+          {/* Bottom Hero Call to Action & Proof Badges */}
+          <div className="max-w-3xl mx-auto px-6 sm:px-8 w-full flex flex-col items-center z-20">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+              <Link
+                href="/order"
+                id="hero-order-now-btn"
+                className="w-full sm:w-auto px-10 py-4 rounded-full bg-[#14241B] text-[#FBF9F5] text-[11px] font-semibold uppercase tracking-[0.2em] text-center hover:bg-[#C4975C] transition-all shadow-[0_12px_30px_-8px_rgba(20,36,27,0.35)] hover:shadow-[0_16px_36px_-8px_rgba(196,151,92,0.45)] hover:-translate-y-0.5 luxury-shimmer flex items-center justify-center gap-2.5"
+              >
+                <span>Order Now</span>
+                <span className="w-1 h-1 rounded-full bg-[#C4975C]" />
+                <span className="text-[10px] text-[#C4975C] tracking-widest font-normal">Complimentary Delivery</span>
+              </Link>
+              <Link
+                href="#products"
+                className="w-full sm:w-auto px-8 py-4 rounded-full border border-[#14241B]/20 text-[#14241B] text-[11px] font-medium uppercase tracking-[0.16em] text-center hover:bg-[#14241B]/5 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+              >
+                Explore Collection
+              </Link>
+            </div>
+
+            {/* Micro Brand Accreditations */}
+            <div className="mt-7 pt-6 border-t border-[#E6ECE8]/90 w-full max-w-xl grid grid-cols-3 gap-6 text-center">
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#14241B] font-normal">100%</span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#8DA394] font-medium">Conscious Care</span>
+              </div>
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#14241B] font-normal">Cold-Pressed</span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#8DA394] font-medium">Active Lipids</span>
+              </div>
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#14241B] font-normal">Scalp-First</span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#8DA394] font-medium">Root Balance</span>
+              </div>
+            </div>
+
+            {/* Subtle Downward Scroll Indicator */}
+            <div className="mt-5 flex flex-col items-center">
+              <Link
+                href="#products"
+                aria-label="Scroll to products"
+                className="group flex flex-col items-center text-[#8DA394] hover:text-[#14241B] transition-colors"
+              >
+                <span className="text-[10px] uppercase tracking-[0.25em] font-medium mb-1 group-hover:text-[#C4975C]">Scroll</span>
+                <svg className="w-3.5 h-3.5 animate-bounce text-[#C4975C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION C: BRAND INTRODUCTION */}
+        <section className="py-20 sm:py-28 bg-[#F4EFE6] border-y border-[#E6ECE8]/90">
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-8 h-px bg-[#C4975C]/60" />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#8DA394] font-medium">
+                The Coco Roots Philosophy
+              </span>
+              <span className="w-8 h-px bg-[#C4975C]/60" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-[54px] text-[#14241B] font-normal leading-[1.2] max-w-3xl mx-auto">
+              &ldquo;True hair vibrancy is not covered up. It is nurtured from the scalp follicle out.&rdquo;
+            </h2>
+            <p className="mt-8 text-base sm:text-lg text-[#3A2E28]/70 leading-[1.8] max-w-2xl mx-auto font-light">
+              We founded Coco Roots on a foundational principle: modern life exposes our hair to persistent heat, city air, and chemical stress. Rather than masking fatigue with heavy silicones, our formulations honor the lipid architecture of each strand with bio-compatible botanical nutrition.
+            </p>
+          </div>
+        </section>
+
+        {/* SECTION D: FEATURED PRODUCTS */}
+        <section id="products" className="py-24 sm:py-32 max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#C4975C] font-semibold">
+                Curated Formulations
+              </span>
+              <h2 className="mt-3 font-serif text-3xl sm:text-5xl lg:text-6xl text-[#14241B] font-normal tracking-[-0.02em]">
+                The Core Botanical Collection
+              </h2>
+            </div>
+            <p className="text-sm sm:text-[15px] text-[#6B726C] max-w-md font-light leading-relaxed">
+              Small-batch hair wellness essentials engineered with cold-pressed oils, clarifying botanical extracts, and restorative moisture complexes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            {PRODUCTS.map((prod) => (
+              <ProductCard
+                key={prod.id}
+                product={prod}
+                onSelect={(p) => setSelectedProduct(p)}
+                onAddToCart={(p) => handleAddToCart(p)}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION E: HAIRCARE PHILOSOPHY & INGREDIENTS */}
+        <section id="philosophy" className="py-24 sm:py-32 bg-[#14241B] text-[#FBF9F5] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-5">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#C4975C] font-semibold">
+                  Botanical Science
+                </span>
+                <h2 className="mt-4 font-serif text-3xl sm:text-5xl lg:text-6xl text-[#FBF9F5] font-normal leading-[1.15] tracking-[-0.02em]">
+                  Crafted with Respect for the Botanical Seed.
+                </h2>
+                <p className="mt-6 text-base text-[#FBF9F5]/75 leading-[1.8] font-light">
+                  We balance time-honored botanical wisdom with modern cosmetic rigor. By extracting active compounds at low temperatures, we preserve raw antioxidants and lipid chains that work in effortless symmetry with your hair.
+                </p>
+
+                <div className="mt-10 space-y-6">
+                  {PHILOSOPHY_PILLARS.map((pillar) => (
+                    <div key={pillar.step} className="flex gap-5 border-t border-[#223B2D] pt-6">
+                      <span className="font-serif text-2xl text-[#C4975C] font-light">{pillar.step}</span>
+                      <div>
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#FBF9F5] font-normal">{pillar.title}</h3>
+                        <p className="mt-1.5 text-sm text-[#FBF9F5]/70 leading-relaxed font-light">{pillar.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-7">
+                <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                  <Image
+                    src="/images/story-ritual.jpg"
+                    alt="Botanical extracts, raw cold pressed oils, and herbs used in Coco Roots formulations"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 650px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/50 backdrop-blur-md border border-white/15">
+                    <p className="text-xs text-white/95 font-light tracking-wide">
+                      Pure Botanical Lipid Extracts &bull; Formulated without heavy silicones, harsh sulfates, or artificial parabens.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION F: BENEFITS AND PRODUCT EXPERIENCE */}
+        <section id="ritual" className="py-24 sm:py-32 bg-[#FBF9F5]">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#8DA394] font-medium">
+                Tangible Results
+              </span>
+              <h2 className="mt-3 font-serif text-3xl sm:text-5xl text-[#14241B] font-normal tracking-[-0.02em]">
+                The Sensorial Product Experience
+              </h2>
+              <p className="mt-4 text-base text-[#6B726C] font-light leading-relaxed">
+                Formulations crafted to delight the senses—from the lightweight slip between your fingertips to the delicate natural scent notes of botanical oils.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {PRODUCT_EXPERIENCE_FEATURES.map((feat, idx) => (
+                <div
+                  key={idx}
+                  className="p-8 rounded-2xl bg-white border border-[#E6ECE8] luxury-card-hover flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] text-[#C4975C]">
+                      {feat.detail}
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl text-[#14241B] font-normal leading-snug">
+                      {feat.title}
+                    </h3>
+                    <p className="mt-3 text-sm text-[#6B726C] leading-relaxed font-light">
+                      {feat.description}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-[#F4EFE6] flex items-center gap-2 text-xs text-[#8DA394]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#14241B]" />
+                    <span className="font-light">Mindfully Tested</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION G & H: BRAND STORY & EDITORIAL CAMPAIGN */}
+        <section id="story" className="py-24 sm:py-32 bg-[#F4EFE6] border-t border-[#E6ECE8]/90">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              {/* Campaign Image */}
+              <div className="lg:col-span-6 order-2 lg:order-1">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#E6ECE8] group">
+                  <Image
+                    src="/images/campaign-editorial.jpg"
+                    alt="Editorial model showcasing healthy, radiant hair in natural botanical light"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 650px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-[9px] uppercase font-medium tracking-[0.2em] text-[#14241B] shadow-sm">
+                    Editorial Campaign
+                  </div>
+                </div>
+              </div>
+
+              {/* Story Narrative */}
+              <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#C4975C] font-semibold">
+                  Our Story
+                </span>
+                <h2 className="mt-3 font-serif text-3xl sm:text-5xl lg:text-6xl text-[#14241B] font-normal leading-[1.15] tracking-[-0.02em]">
+                  Rediscovering the Roots of Hair Vitality.
+                </h2>
+                <p className="mt-6 text-base text-[#3A2E28]/75 leading-[1.8] font-light">
+                  Coco Roots emerged from a deep conviction: in our fast-paced modern world, haircare had become overly complicated, filled with synthetic shortcuts that deplete hair over time.
+                </p>
+                <p className="mt-4 text-base text-[#3A2E28]/75 leading-[1.8] font-light">
+                  We returned to the original source—rich cold-pressed coconut lipids and restorative botanicals that have sustained vibrant hair across generations. We formulate in harmony with nature to deliver authentic nourishment you can see and feel.
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="#products"
+                    className="inline-flex items-center gap-2 text-xs uppercase font-medium tracking-[0.18em] text-[#14241B] hover:text-[#C4975C] transition-colors group"
+                  >
+                    <span>Experience The Collection</span>
+                    <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION I: BRAND PHILOSOPHY / SOCIAL PROOF COMMITMENT */}
+        <section className="py-20 sm:py-28 bg-[#FFFFFF] border-b border-[#E6ECE8]/90">
+          <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#8DA394] font-medium">
+              Our Commitment
+            </span>
+            <h2 className="mt-3 font-serif text-2xl sm:text-4xl lg:text-5xl text-[#14241B] font-normal tracking-[-0.02em]">
+              Conscious Craftsmanship, Proven Sourcing
+            </h2>
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              <div className="p-8 rounded-2xl bg-[#FBF9F5] border border-[#E6ECE8] luxury-card-hover">
+                <div className="w-2 h-2 rounded-full bg-[#C4975C] mb-4" />
+                <h3 className="font-serif text-xl sm:text-2xl text-[#14241B] font-normal">Sustainable Harvesting</h3>
+                <p className="mt-2.5 text-xs sm:text-[13px] text-[#6B726C] leading-relaxed font-light">
+                  We source our coconut lipids and botanical ingredients with ethical growers committed to regenerative soil practices.
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl bg-[#FBF9F5] border border-[#E6ECE8] luxury-card-hover">
+                <div className="w-2 h-2 rounded-full bg-[#C4975C] mb-4" />
+                <h3 className="font-serif text-xl sm:text-2xl text-[#14241B] font-normal">Zero Harsh Fillers</h3>
+                <p className="mt-2.5 text-xs sm:text-[13px] text-[#6B726C] leading-relaxed font-light">
+                  Every drop is intentional. No artificial parabens, synthetic dyes, or drying alcohols. Only pure hair wellness.
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl bg-[#FBF9F5] border border-[#E6ECE8] luxury-card-hover">
+                <div className="w-2 h-2 rounded-full bg-[#C4975C] mb-4" />
+                <h3 className="font-serif text-xl sm:text-2xl text-[#14241B] font-normal">Small-Batch Calibrated</h3>
+                <p className="mt-2.5 text-xs sm:text-[13px] text-[#6B726C] leading-relaxed font-light">
+                  Formulated in limited batches to ensure optimum freshness, active potency, and lipid stability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION J: NEWSLETTER */}
+        <Newsletter />
       </main>
+
+      {/* SECTION K: FOOTER */}
+      <Footer />
+
+      {/* Interactive Product Details Modal */}
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onAddToCart={(p) => handleAddToCart(p)}
+      />
+
+      {/* Interactive Shopping Bag Drawer Modal */}
+      {isBagOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex justify-end bg-black/50 backdrop-blur-sm animate-in fade-in"
+        >
+          <div className="w-full max-w-md bg-[#FBF9F5] h-full shadow-2xl flex flex-col justify-between border-l border-[#E6ECE8]">
+            {/* Bag Header */}
+            <div className="p-6 border-b border-[#E6ECE8] flex items-center justify-between">
+              <div>
+                <h3 className="font-serif text-2xl text-[#14241B] font-normal">Your Shopping Bag</h3>
+                <span className="text-[11px] text-[#8DA394] uppercase tracking-[0.14em]">
+                  {cartItems.length} {cartItems.length === 1 ? "Item" : "Items"}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsBagOpen(false)}
+                className="p-2 text-[#14241B] hover:text-[#C4975C] focus:outline-none"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Bag Item List */}
+            <div className="p-6 flex-1 overflow-y-auto space-y-4">
+              {cartItems.length === 0 ? (
+                <div className="py-16 text-center">
+                  <p className="font-serif text-xl text-[#14241B]">Your bag is currently empty.</p>
+                  <p className="mt-2 text-xs text-[#6B726C] font-light">Explore our botanical collection to begin your ritual.</p>
+                  <button
+                    type="button"
+                    onClick={() => setIsBagOpen(false)}
+                    className="mt-6 px-7 py-3 rounded-full bg-[#14241B] text-[#FBF9F5] text-[11px] font-medium uppercase tracking-[0.14em]"
+                  >
+                    Continue Browsing
+                  </button>
+                </div>
+              ) : (
+                cartItems.map((item, idx) => (
+                  <div key={idx} className="flex gap-4 p-3.5 rounded-xl bg-white border border-[#E6ECE8] items-center">
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[#F4EFE6]">
+                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-serif text-base text-[#14241B] truncate">{item.name}</h4>
+                      <p className="text-[10px] text-[#8DA394] uppercase tracking-wider">{item.volume}</p>
+                      <p className="text-[11px] text-[#C4975C] mt-0.5">{item.priceNote}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveFromCart(idx)}
+                      aria-label="Remove item"
+                      className="p-2 text-stone-400 hover:text-red-500 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Bag Checkout Section */}
+            {cartItems.length > 0 && (
+              <div className="p-6 border-t border-[#E6ECE8] bg-white">
+                <div className="flex justify-between items-baseline mb-3">
+                  <span className="text-xs uppercase tracking-wider text-[#8DA394]">Estimated Total</span>
+                  <span className="font-serif text-xl font-semibold text-[#14241B]">
+                    ₦{cartItems.reduce((acc, curr) => acc + curr.price, 0).toLocaleString()}
+                  </span>
+                </div>
+                <div className="p-3 mb-4 rounded-xl bg-[#F4EFE6] text-xs text-[#6B726C] leading-relaxed font-light flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C4975C] shrink-0" />
+                  <span>Complimentary express insulated courier included on this reservation.</span>
+                </div>
+                <Link
+                  href="/order"
+                  onClick={() => setIsBagOpen(false)}
+                  className="w-full py-4 rounded-full bg-[#14241B] text-[#FBF9F5] text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#C4975C] transition-all flex items-center justify-center gap-2 shadow-lg luxury-shimmer block text-center"
+                >
+                  <span>Proceed to Private Order</span>
+                  <span>&rarr;</span>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
